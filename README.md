@@ -14,10 +14,10 @@
 
 # Batocera-SmartPiOne
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/blob/master/COPYING)
-[![Version](https://img.shields.io/badge/Version-v38-green.svg)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases)
-[![Downloads](https://img.shields.io/github/downloads/Yumi-Lab/Batocera-SmartPiOne/total.svg)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases)
-[![Wiki](https://img.shields.io/badge/Wiki-batocera.org-orange?logo=gitbook&logoColor=white)](https://wiki.batocera.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/blob/master/COPYING)
+[![Version](https://img.shields.io/badge/Version-v38-green?style=for-the-badge)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases)
+[![Downloads](https://img.shields.io/github/downloads/Yumi-Lab/Batocera-SmartPiOne/total?style=for-the-badge)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases)
+[![Wiki](https://img.shields.io/badge/Wiki-batocera.org-orange?style=for-the-badge&logo=gitbook&logoColor=white)](https://wiki.batocera.org/)
 
 Turn your SmartPi One into a plug-and-play retrogaming console — **117 systems**, RetroAchievements, scraper, gamepad auto-detection — powered by **[Batocera Linux](https://batocera.org/)**.
 
