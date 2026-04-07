@@ -1,4 +1,8 @@
 <p align="center">
+  <a href="https://batocera.org/">
+    <img src="assets/logo_batocera.png" alt="Batocera Linux" height="80"/>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://www.yumi-lab.com">
     <img src="assets/logo_yumi.png" alt="Yumi Lab" height="80"/>
   </a>
