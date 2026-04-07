@@ -1,119 +1,155 @@
-# Batocera-SmartPiOne
+<p align="center">
+  <img src="https://batocera.org/images/logo/logo_small.png" alt="Batocera Logo" width="280">
+</p>
 
-[Batocera Linux](https://batocera.org/) port for the [SmartPi One](https://www.yumi-lab.com) (Allwinner H3) by Yumi Lab.
+<h1 align="center">Batocera SmartPi One</h1>
 
-Turn your SmartPi One into a plug-and-play retrogaming console with 50+ emulators, scraper, RetroAchievements, and a polished UI — powered by the Batocera community.
+<p align="center">
+  <strong>Turn your SmartPi One into a plug-and-play retrogaming console</strong><br>
+  117 systems · RetroAchievements · Scraper · WiFi · Gamepad auto-detection
+</p>
 
-> This is a fork of [batocera-linux/batocera.linux](https://github.com/batocera-linux/batocera.linux) with SmartPi One board support added.
+<p align="center">
+  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest"><img src="https://img.shields.io/github/v/release/Yumi-Lab/Batocera-SmartPiOne?label=Download&style=for-the-badge&color=e74c3c" alt="Download"></a>
+  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest"><img src="https://img.shields.io/github/downloads/Yumi-Lab/Batocera-SmartPiOne/total?style=for-the-badge&color=27ae60" alt="Downloads"></a>
+  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/stargazers"><img src="https://img.shields.io/github/stars/Yumi-Lab/Batocera-SmartPiOne?style=for-the-badge&color=f39c12" alt="Stars"></a>
+  <a href="https://batocera.org/"><img src="https://img.shields.io/badge/Batocera-v38-blueviolet?style=for-the-badge" alt="Batocera v38"></a>
+  <a href="https://wiki.batocera.org/"><img src="https://img.shields.io/badge/Docs-wiki.batocera.org-blue?style=for-the-badge" alt="Documentation"></a>
+</p>
 
-## SmartPi One hardware
+<p align="center">
+  <img src="https://img.shields.io/badge/SoC-Allwinner_H3-orange?style=flat-square" alt="H3">
+  <img src="https://img.shields.io/badge/Arch-ARMv7_armhf-blue?style=flat-square" alt="ARMv7">
+  <img src="https://img.shields.io/badge/GPU-Mali--400_Lima-green?style=flat-square" alt="Mali-400">
+  <img src="https://img.shields.io/badge/Kernel-6.1.55-lightgrey?style=flat-square" alt="Kernel">
+  <img src="https://img.shields.io/badge/License-MIT-brightgreen?style=flat-square" alt="MIT">
+</p>
+
+---
+
+> Fork of [batocera-linux/batocera.linux](https://github.com/batocera-linux/batocera.linux) with [SmartPi One](https://www.yumi-lab.com) board support.
+
+## Quick start
+
+### 1. Download
+
+**[Download latest image](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest)** (~1.1 GB)
+
+### 2. Flash
+
+Use [Balena Etcher](https://etcher.balena.io/), [Raspberry Pi Imager](https://www.raspberrypi.com/software/), or `dd`:
+
+```bash
+gunzip batocera-h3-smartpione-38-20231018.img.gz
+sudo dd if=batocera-h3-smartpione-38-20231018.img of=/dev/sdX bs=1M status=progress
+sync
+```
+
+### 3. Play
+
+1. Insert SD card, connect HDMI and gamepad, power on
+2. Batocera boots to EmulationStation (~60-90 seconds)
+3. Configure WiFi from the ES menu
+4. Add ROMs via network share (SMB) or USB
+
+---
+
+## Hardware
 
 | Spec | Detail |
 |------|--------|
 | **SoC** | Allwinner H3 — Cortex-A7 quad-core @ 1.2 GHz |
 | **RAM** | 1 GB DDR3 (576 MHz, custom tuning) |
-| **GPU** | Mali-400 MP2 — Lima (GLES 2.0) |
+| **GPU** | Mali-400 MP2 — Lima / Mesa (GLES 2.0) |
 | **WiFi** | RTL8188EU (on-board) |
-| **Storage** | MicroSD |
-| **Video** | HDMI 1080p + Composite |
+| **Bluetooth** | Via USB dongle |
+| **Storage** | MicroSD (image ~1.2 GB, expands to full card) |
+| **Video** | HDMI up to 1080p (adaptive) + Composite |
 
-## What you get
+## Features
 
-| Feature | Detail |
-|---------|--------|
-| **Emulators** | 50+ systems — NES, SNES, Mega Drive, PS1, GBA, N64, arcade, and more |
-| **Frontend** | Batocera EmulationStation (themes, scraping, per-game settings) |
-| **GPU driver** | Lima (open-source Mesa, GLES 2.0) |
-| **RetroAchievements** | Built-in support |
-| **Controllers** | Auto-detection USB/BT gamepads |
-| **Network** | WiFi config from ES menu |
-| **Updates** | Atomic update (replace single squashfs file) |
-| **Boot time** | ~60-90 seconds to EmulationStation |
+| | |
+|---|---|
+| **117 systems** | From Atari 2600 to PlayStation, arcade to home computers |
+| **EmulationStation** | Frontend with scraper, themes, and per-game settings |
+| **RetroAchievements** | Built-in — earn trophies on retro games |
+| **Controllers** | Auto-detection USB & Bluetooth gamepads |
+| **Network** | WiFi setup from ES menu + SMB file sharing for ROMs |
+| **Updates** | Atomic — replace a single squashfs file |
+| **73 libretro cores** | + standalone emulators (Mupen64Plus, ScummVM) |
 
-### Emulation performance (H3 reality check)
+## Emulation performance
 
-| System | Performance |
-|--------|------------|
-| NES / SNES / Game Boy / GBA | Excellent |
-| Mega Drive / Master System | Excellent |
-| PS1 (easy titles) | Good |
-| N64 | Poor (hardware limit) |
-| PSP | Not recommended |
-| Arcade (CPS1/CPS2/Neo-Geo) | Good to Excellent |
-| DOS / ScummVM | Good |
+| Tier | Systems | Performance |
+|------|---------|-------------|
+| **Excellent** | NES, SNES, Game Boy, GBA, Mega Drive, Master System | Full speed |
+| **Good** | PS1, Arcade (CPS1/CPS2/Neo-Geo), DOS, ScummVM | Most titles |
+| **Limited** | N64, Dreamcast | Light titles only |
+| **Not recommended** | PSP | Hardware limit |
 
-The H3 is comparable to a Raspberry Pi 2 in emulation capability. For heavier systems, wait for SmartPi 4 (H618/Mali-G31/Vulkan).
+> The H3 is comparable to a Raspberry Pi 2. For heavier systems, wait for **SmartPi 4** (H618 / Mali-G31 / Vulkan).
+
+---
+
+## Supported systems (117)
+
+<details>
+<summary><strong>Click to expand full list</strong></summary>
+
+| | | | |
+|---|---|---|---|
+| Abuse | Amiga 500 | Amiga 1200 | Amiga CD32 |
+| Amiga CDTV | Amstrad CPC | Amstrad GX4000 | Apple II |
+| Apple IIGS | Arduboy | Atari 2600 | Atari 5200 |
+| Atari 7800 | Atari 800 | Atari Lynx | Atari ST |
+| Atomiswave | Cannonball | Cave Story | C-Dogs SDL |
+| Channel F | ColecoVision | Commodore 64 | Commodore 128 |
+| Commodore PET | Commodore Plus/4 | Commodore VIC-20 | Commander Genius |
+| Daphne | DevilutionX | DOS | Dreamcast |
+| EasyRPG | Famicom Disk System | FinalBurn Neo | Flash |
+| Game & Watch | Game Boy | Game Boy (2 Players) | Game Boy Advance |
+| Game Boy Color | Game Boy Color (2P) | Game Gear | HCL |
+| Hurrican | Intellivision | LowRes NX | Macintosh |
+| MAME | Master System | Mega Drive | Mega Duck |
+| Moonlight | Mr. Boom | MSU-MD | MSX |
+| MSX2 | MSX2+ | MSX turboR | Multivision |
+| Naomi | Neo-Geo | Neo-Geo CD | Neo-Geo Pocket |
+| Neo-Geo Pocket Color | NES | Nintendo 64 | Nintendo 64DD |
+| Odyssey² | OpenBOR | PC-88 | PC-98 |
+| PC Engine | PC Engine CD | PICO-8 | Sega Pico |
+| PlayStation | Pokémon Mini | Ports | PrBoom (Doom) |
+| PSP | Quake III | SAM Coupé | Satellaview |
+| ScummVM | SCV | SDLPoP (Prince of Persia) | Sega 32X |
+| Sega CD | SG-1000 | Sharp X1 | Sharp X68000 |
+| SNES | SNES MSU-1 | Solarus | Sonic Retro |
+| Sufami Turbo | Super Bros War | Super Game Boy | SuperGrafx |
+| Supervision | TheXTech | Thomson | TIC-80 |
+| Tyrian | TyrQuake | Vectrex | Videopac+ |
+| Virtual Boy | WonderSwan | WonderSwan Color | Xash3D FWGS (Half-Life) |
+| XRick | ZC210 | ZX81 | ZX Spectrum |
+| OD Commander | | | |
+
+</details>
+
+---
 
 ## What we changed from upstream Batocera
 
 Only **board-level** additions — zero changes to emulators or Batocera core.
 
-> **Note:** The current release image (v38) uses the `orangepi-pc` board profile, which is fully compatible with the SmartPi One H3. The custom `smartpi-one` board profile below is prepared for a future build.
+> **Note:** The current release (v38) uses the `orangepi-pc` board profile, which is fully compatible with SmartPi One H3. A dedicated `smartpi-one` board profile is prepared for a future build.
 
 | File | Change |
 |------|--------|
 | `board/batocera/allwinner/h3/smartpi-one/` | New board: boot script, genimage, extlinux |
-| `package/batocera/boot/uboot-multiboard/nanopi_m1/` | U-Boot DRAM tuning (576MHz, ZQ=3881979, ODT) |
+| `package/batocera/boot/uboot-multiboard/nanopi_m1/` | U-Boot DRAM tuning (576 MHz, ZQ=3881979, ODT) |
 | `package/batocera/boot/uboot-multiboard/Config.in` | Added `nanopi_m1` to H3 U-Boot list |
 | `package/batocera/core/batocera-system/Config.in` | Registered `smartpi-one` board |
 | `configs/batocera-h3.board` | Added `sun8i-h3-nanopi-m1` DTB |
 | `.github/workflows/build-smartpi-one.yml` | CI workflow |
 
-## Quick start
-
-### Download
-
-Pre-built images available in [Releases](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases) (when available) or as [GitHub Actions artifacts](https://github.com/Yumi-Lab/Batocera-SmartPiOne/actions).
-
-### Flash
-
-Use [Balena Etcher](https://etcher.balena.io/), [Raspberry Pi Imager](https://www.raspberrypi.com/software/), or `dd`:
-
-```bash
-gunzip batocera-smartpi-one.img.gz
-sudo dd if=batocera-smartpi-one.img of=/dev/sdX bs=1M status=progress
-sync
-```
-
-### First boot
-
-1. Insert SD card, connect HDMI and gamepad, power on
-2. Batocera boots directly to EmulationStation
-3. Configure WiFi from the ES menu
-4. Add ROMs via network share (SMB) or USB
-
-## Build from source
-
-Requires a Linux x86_64 machine with **200 GB disk**, **8 GB RAM**, **4+ CPU cores**.
-See [docs/BUILD-VM-SETUP.md](docs/BUILD-VM-SETUP.md) for Windows users (Ubuntu VM or WSL2).
-
-```bash
-git clone https://github.com/Yumi-Lab/Batocera-SmartPiOne.git
-cd Batocera-SmartPiOne
-make h3-build
-```
-
-| Phase | First build | Rebuild (cache) |
-|-------|------------|-----------------|
-| **Toolchain** | ~30 min | cached |
-| **Kernel + U-Boot** | ~20 min | ~5 min |
-| **Packages (all emulators)** | 3-6h | ~1h |
-| **Image generation** | ~10 min | ~10 min |
-| **Total** | **4-8h** | **~1-2h** |
-
-Output: `output/h3/images/batocera/smartpi-one/batocera*.img`
-
-## Build requirements
-
-| Resource | Minimum | Recommended |
-|----------|---------|-------------|
-| **OS** | Linux x86_64 (Ubuntu 22.04+) | Ubuntu 24.04 |
-| **Disk** | 100 GB | 200 GB |
-| **RAM** | 8 GB | 16 GB |
-| **CPU** | 4 cores | 8+ cores |
-| **Time** | 8 hours | 4 hours |
-
-## Project structure (SmartPi additions)
+<details>
+<summary><strong>Project structure</strong></summary>
 
 ```
 board/batocera/allwinner/h3/
@@ -132,25 +168,65 @@ package/batocera/boot/uboot-multiboard/
 └── Config.in                       # Board list (nanopi_m1 added)
 ```
 
+</details>
+
+---
+
+## Build from source
+
+Requires a Linux x86_64 machine with **200 GB disk**, **8 GB RAM**, **4+ CPU cores**.
+See [docs/BUILD-VM-SETUP.md](docs/BUILD-VM-SETUP.md) for Windows users (Ubuntu VM or WSL2).
+
+```bash
+git clone https://github.com/Yumi-Lab/Batocera-SmartPiOne.git
+cd Batocera-SmartPiOne
+make h3-build
+```
+
+| Phase | First build | Rebuild |
+|-------|------------|---------|
+| Toolchain | ~30 min | cached |
+| Kernel + U-Boot | ~20 min | ~5 min |
+| Packages (all emulators) | 3–6 h | ~1 h |
+| Image generation | ~10 min | ~10 min |
+| **Total** | **4–8 h** | **~1–2 h** |
+
+<details>
+<summary><strong>Build requirements</strong></summary>
+
+| Resource | Minimum | Recommended |
+|----------|---------|-------------|
+| **OS** | Linux x86_64 (Ubuntu 22.04+) | Ubuntu 24.04 |
+| **Disk** | 100 GB | 200 GB |
+| **RAM** | 8 GB | 16 GB |
+| **CPU** | 4 cores | 8+ cores |
+
+</details>
+
+---
+
 ## Related projects
 
 | Project | Description |
 |---------|-------------|
-| [RetroMi](https://github.com/Yumi-Lab/RetroMi) | Custom retrogaming image (RetroPie + EmulationStation on Armbian) |
-| [SmartPi-BSP-kernel-linux](https://github.com/Yumi-Lab/SmartPi-BSP-kernel-linux) | Minimal BSP — bare Linux in 15 MB, boots in 5 seconds |
+| [RetroMi](https://github.com/Yumi-Lab/RetroMi) | RetroPie + EmulationStation on Armbian for SmartPi One |
 | [SmartPi-armbian](https://github.com/Yumi-Lab/SmartPi-armbian) | Armbian server base image |
+| [SmartPi-BSP-kernel-linux](https://github.com/Yumi-Lab/SmartPi-BSP-kernel-linux) | Minimal BSP — bare Linux in 15 MB |
 | [Batocera upstream](https://github.com/batocera-linux/batocera.linux) | Original Batocera project |
 
 ## Documentation
 
-Full Batocera documentation (controls, scraping, netplay, themes, etc.):
-**[wiki.batocera.org](https://wiki.batocera.org/)**
+Full Batocera documentation: **[wiki.batocera.org](https://wiki.batocera.org/)**
 
-## Credits
+Covers controls, scraping, netplay, themes, RetroAchievements, and more.
 
-- [Batocera Linux](https://batocera.org/) — the amazing retrogaming distribution
-- [Yumi Lab](https://www.yumi-lab.com) — SmartPi One hardware and board support
+---
 
-## License
+<p align="center">
+  <a href="https://batocera.org/"><strong>Batocera Linux</strong></a> ·
+  <a href="https://www.yumi-lab.com"><strong>Yumi Lab</strong></a>
+</p>
 
-MIT — Same as upstream Batocera.
+<p align="center">
+  <sub>MIT License — Same as upstream Batocera</sub>
+</p>
