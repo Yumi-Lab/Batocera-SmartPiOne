@@ -95,10 +95,7 @@ sync
 
 > The H3 is comparable to a Raspberry Pi 2. For heavier systems, wait for **SmartPi 4** (H618 / Mali-G31 / Vulkan).
 
-## Supported Systems (117)
-
-<details>
-<summary>Click to expand full list</summary>
+## Full List of Supported Systems (117)
 
 | | | | |
 |---|---|---|---|
@@ -132,8 +129,6 @@ sync
 | Virtual Boy | WonderSwan | WonderSwan Color | Xash3D FWGS (Half-Life) |
 | XRick | ZC210 | ZX81 | ZX Spectrum |
 | OD Commander | | | |
-
-</details>
 
 ## What We Changed from Upstream Batocera
 
