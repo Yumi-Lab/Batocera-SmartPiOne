@@ -142,6 +142,11 @@ package/batocera/boot/uboot-multiboard/
 | [SmartPi-armbian](https://github.com/Yumi-Lab/SmartPi-armbian) | Armbian server base image |
 | [Batocera upstream](https://github.com/batocera-linux/batocera.linux) | Original Batocera project |
 
+## Documentation
+
+Full Batocera documentation (controls, scraping, netplay, themes, etc.):
+**[wiki.batocera.org](https://wiki.batocera.org/)**
+
 ## Credits
 
 - [Batocera Linux](https://batocera.org/) — the amazing retrogaming distribution
