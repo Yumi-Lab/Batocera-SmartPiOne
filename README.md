@@ -1,6 +1,10 @@
 <p align="center">
+  <a href="https://batocera.org/">
+    <img src="assets/logo_batocera.png" alt="Batocera Linux" width="280"/>
+  </a>
+  <br><br>
   <a href="https://www.yumi-lab.com">
-    <img src="assets/logo_yumi.png" alt="Yumi Lab" width="200"/>
+    <img src="assets/logo_yumi.png" alt="Yumi Lab" width="160"/>
   </a>
 </p>
 
