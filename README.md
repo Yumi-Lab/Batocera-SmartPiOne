@@ -65,16 +65,13 @@ Pre-built images available in [Releases](https://github.com/Yumi-Lab/Batocera-Sm
 
 ### Flash
 
-```bash
-# Decompress
-gunzip batocera-smartpi-one.img.gz
+Use [Balena Etcher](https://etcher.balena.io/), [Raspberry Pi Imager](https://www.raspberrypi.com/software/), or `dd`:
 
-# Flash (replace /dev/sdX with your SD card)
+```bash
+gunzip batocera-smartpi-one.img.gz
 sudo dd if=batocera-smartpi-one.img of=/dev/sdX bs=1M status=progress
 sync
 ```
-
-> **Warning**: Do NOT use Balena Etcher with Allwinner H3 images — use `dd` only.
 
 ### First boot
 
