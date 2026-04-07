@@ -1,0 +1,88 @@
+name: Build Batocera SmartPi One
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'board/batocera/allwinner/h3/smartpi-one/**'
+      - 'package/batocera/boot/uboot-multiboard/nanopi_m1/**'
+      - 'configs/batocera-h3.board'
+      - '.github/workflows/build-smartpi-one.yml'
+
+jobs:
+  build:
+    runs-on: [self-hosted, Linux, X64, yumi-lab]
+    timeout-minutes: 720  # 12h max
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Free disk space
+        run: |
+          df -h .
+          echo "Need ~150GB free for Batocera Buildroot"
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential git libncurses5-dev qt5-default libssl-dev \
+            device-tree-compiler bison flex u-boot-tools lzop libmp3lame-dev \
+            python3 python3-setuptools python3-dev swig cpio rsync bc \
+            wget unzip file dosfstools mtools libglib2.0-dev \
+            genimage libconfuse-dev || true
+
+      - name: Build Batocera H3 (SmartPi One)
+        run: |
+          # Use DIRECT_BUILD since we're not in Docker
+          export DIRECT_BUILD=1
+          make h3-build 2>&1 | tee build.log | tail -1000
+        env:
+          BATCH_MODE: "1"
+
+      - name: Extract SmartPi One image
+        run: |
+          # Find the generated image for smartpi-one board
+          OUTDIR="output/h3"
+          echo "=== Build output ==="
+          ls -lh ${OUTDIR}/images/batocera/smartpi-one/ 2>/dev/null || \
+          ls -lh ${OUTDIR}/images/batocera/ 2>/dev/null || \
+          find ${OUTDIR}/images -name "*.img*" -o -name "*.gz" 2>/dev/null | head -20
+
+          # Compress the image
+          IMG=$(find ${OUTDIR}/images -name "batocera-smartpi-one*.img" 2>/dev/null | head -1)
+          if [ -z "$IMG" ]; then
+            # Fallback: look for any batocera image
+            IMG=$(find ${OUTDIR}/images -name "batocera*.img" 2>/dev/null | head -1)
+          fi
+
+          if [ -n "$IMG" ]; then
+            echo "Compressing ${IMG}..."
+            gzip -9 -k "$IMG"
+            ls -lh "${IMG}.gz"
+          else
+            echo "WARNING: No image found, listing all outputs:"
+            find ${OUTDIR}/images -type f -name "*.img*" 2>/dev/null
+          fi
+
+      - name: Upload SmartPi One image
+        uses: actions/upload-artifact@v4
+        with:
+          name: batocera-smartpi-one
+          path: |
+            output/h3/images/batocera/smartpi-one/*.img.gz
+            output/h3/images/batocera/smartpi-one/*.img
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+          retention-days: 7

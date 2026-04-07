@@ -1,0 +1,5 @@
+# SmartPi One (Yumi Lab) — custom DRAM tuning
+# Based on nanopi_m1_defconfig with adjusted DRAM parameters
+CONFIG_DRAM_CLK=576
+CONFIG_DRAM_ZQ=3881979
+CONFIG_DRAM_ODT_EN=y
