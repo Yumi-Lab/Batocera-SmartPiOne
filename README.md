@@ -206,6 +206,13 @@ make h3-build
 
 ---
 
+## Roadmap
+
+- [ ] **CPU frequency**: OPP table limited to 1008 MHz — add 1.2 GHz OPP in custom SmartPi One DTB (H3 supports up to 1.296 GHz)
+- [ ] **Custom board profile**: Build with dedicated `smartpi-one` board instead of `orangepi-pc`
+- [ ] **cpufreq driver**: Enable `CONFIG_CPU_FREQ` + `CONFIG_ARM_ALLWINNER_SUN50I_CPUFREQ_NVMEM` in kernel config for dynamic frequency scaling
+- [ ] **Upgrade to Batocera v39/v40**
+
 ## Related projects
 
 | Project | Description |
