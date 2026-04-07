@@ -28,7 +28,7 @@ Turn your SmartPi One into a plug-and-play retrogaming console with 50+ emulator
 | **Controllers** | Auto-detection USB/BT gamepads |
 | **Network** | WiFi config from ES menu |
 | **Updates** | Atomic update (replace single squashfs file) |
-| **Boot time** | ~15 seconds to EmulationStation |
+| **Boot time** | ~60-90 seconds to EmulationStation |
 
 ### Emulation performance (H3 reality check)
 
@@ -46,7 +46,9 @@ The H3 is comparable to a Raspberry Pi 2 in emulation capability. For heavier sy
 
 ## What we changed from upstream Batocera
 
-Only **board-level** additions — zero changes to emulators or Batocera core:
+Only **board-level** additions — zero changes to emulators or Batocera core.
+
+> **Note:** The current release image (v38) uses the `orangepi-pc` board profile, which is fully compatible with the SmartPi One H3. The custom `smartpi-one` board profile below is prepared for a future build.
 
 | File | Change |
 |------|--------|
