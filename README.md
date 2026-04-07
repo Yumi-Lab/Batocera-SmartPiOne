@@ -1,36 +1,51 @@
 <p align="center">
-  <img src="https://batocera.org/images/logo/logo_small.png" alt="Batocera Logo" width="280">
+  <a href="https://www.yumi-lab.com">
+    <img src="assets/logo_yumi.png" alt="Yumi Lab" width="200"/>
+  </a>
 </p>
 
-<h1 align="center">Batocera SmartPi One</h1>
+# Batocera-SmartPiOne
 
-<p align="center">
-  <strong>Turn your SmartPi One into a plug-and-play retrogaming console</strong><br>
-  117 systems · RetroAchievements · Scraper · WiFi · Gamepad auto-detection
-</p>
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/blob/master/COPYING)
+[![Version](https://img.shields.io/badge/Version-v38-green.svg)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases)
+[![Downloads](https://img.shields.io/github/downloads/Yumi-Lab/Batocera-SmartPiOne/total.svg)](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases)
+[![Wiki](https://img.shields.io/badge/Wiki-batocera.org-orange?logo=gitbook&logoColor=white)](https://wiki.batocera.org/)
 
-<p align="center">
-  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest"><img src="https://img.shields.io/github/v/release/Yumi-Lab/Batocera-SmartPiOne?label=release&style=flat-square&color=e74c3c" alt="Release"></a>
-  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest"><img src="https://img.shields.io/github/downloads/Yumi-Lab/Batocera-SmartPiOne/total?style=flat-square&color=27ae60&label=downloads" alt="Downloads"></a>
-  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/stargazers"><img src="https://img.shields.io/github/stars/Yumi-Lab/Batocera-SmartPiOne?style=flat-square&color=f39c12" alt="Stars"></a>
-  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne"><img src="https://img.shields.io/github/repo-size/Yumi-Lab/Batocera-SmartPiOne?style=flat-square&label=repo%20size" alt="Repo size"></a>
-  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/blob/master/COPYING"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="License"></a>
-</p>
+Turn your SmartPi One into a plug-and-play retrogaming console — **117 systems**, RetroAchievements, scraper, gamepad auto-detection — powered by **[Batocera Linux](https://batocera.org/)**.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Batocera-v38-blueviolet?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yMSAzSDNhMiAyIDAgMCAwLTIgMnYxNGEyIDIgMCAwIDAgMiAyaDE4YTIgMiAwIDAgMCAyLTJWNWEyIDIgMCAwIDAtMi0yek05IDE3SDdWN2gydjEwem00IDBoLTJWN2gydjEwem00IDBoLTJWN2gydjEweiIvPjwvc3ZnPg==" alt="Batocera v38">
-  <img src="https://img.shields.io/badge/SoC-Allwinner_H3-orange?style=flat-square" alt="H3">
-  <img src="https://img.shields.io/badge/CPU-Cortex--A7_×4_@_1.0GHz-blue?style=flat-square" alt="CPU">
-  <img src="https://img.shields.io/badge/GPU-Mali--400_MP2_(Lima)-green?style=flat-square" alt="GPU">
-  <img src="https://img.shields.io/badge/kernel-6.1.55-lightgrey?style=flat-square" alt="Kernel">
-  <img src="https://img.shields.io/badge/systems-117-ff69b4?style=flat-square" alt="117 systems">
-</p>
+> This is a fork of [batocera-linux/batocera.linux](https://github.com/batocera-linux/batocera.linux) with SmartPi One board support added.
 
----
+## Table of Contents
 
-> Fork of [batocera-linux/batocera.linux](https://github.com/batocera-linux/batocera.linux) with [SmartPi One](https://www.yumi-lab.com) board support.
+- [Supported Hardware](#supported-hardware)
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [Emulation Performance](#emulation-performance)
+- [Supported Systems (117)](#supported-systems-117)
+- [What We Changed](#what-we-changed-from-upstream-batocera)
+- [Build from Source](#build-from-source)
+- [Roadmap](#roadmap)
+- [Related Projects](#related-projects)
+- [Documentation](#documentation)
+- [License](#license)
 
-## Quick start
+## Supported Hardware
+
+### SmartPi One
+![SmartPi One](https://img.shields.io/badge/SmartPi_One-Allwinner_H3-orange?style=for-the-badge&logo=arm&logoColor=white)
+
+| Specification | Value |
+|---------------|-------|
+| **SoC** | Allwinner H3 — Cortex-A7 quad-core @ 1.0 GHz |
+| **RAM** | 1 GB DDR3 (576 MHz, custom tuning) |
+| **GPU** | Mali-400 MP2 — Lima / Mesa (GLES 2.0) |
+| **WiFi** | Via USB dongle (RTL8188EU tested) |
+| **Bluetooth** | Via USB dongle |
+| **Storage** | MicroSD (image ~1.2 GB, expands to full card) |
+| **Video** | HDMI up to 1080p (adaptive) + Composite |
+| **Kernel** | Linux 6.1.55 |
+
+## Quick Start
 
 ### 1. Download
 
@@ -53,33 +68,19 @@ sync
 3. Configure WiFi from the ES menu
 4. Add ROMs via network share (SMB) or USB
 
----
-
-## Hardware
-
-| Spec | Detail |
-|------|--------|
-| **SoC** | Allwinner H3 — Cortex-A7 quad-core @ 1.0 GHz |
-| **RAM** | 1 GB DDR3 (576 MHz, custom tuning) |
-| **GPU** | Mali-400 MP2 — Lima / Mesa (GLES 2.0) |
-| **WiFi** | Via USB dongle (RTL8188EU tested) |
-| **Bluetooth** | Via USB dongle |
-| **Storage** | MicroSD (image ~1.2 GB, expands to full card) |
-| **Video** | HDMI up to 1080p (adaptive) + Composite |
-
 ## Features
 
-| | |
-|---|---|
+| Feature | Detail |
+|---------|--------|
 | **117 systems** | From Atari 2600 to PlayStation, arcade to home computers |
 | **EmulationStation** | Frontend with scraper, themes, and per-game settings |
+| **73 libretro cores** | + standalone emulators (Mupen64Plus, ScummVM) |
 | **RetroAchievements** | Built-in — earn trophies on retro games |
 | **Controllers** | Auto-detection USB & Bluetooth gamepads |
 | **Network** | WiFi setup from ES menu + SMB file sharing for ROMs |
 | **Updates** | Atomic — replace a single squashfs file |
-| **73 libretro cores** | + standalone emulators (Mupen64Plus, ScummVM) |
 
-## Emulation performance
+## Emulation Performance
 
 | Tier | Systems | Performance |
 |------|---------|-------------|
@@ -90,12 +91,10 @@ sync
 
 > The H3 is comparable to a Raspberry Pi 2. For heavier systems, wait for **SmartPi 4** (H618 / Mali-G31 / Vulkan).
 
----
-
-## Supported systems (117)
+## Supported Systems (117)
 
 <details>
-<summary><strong>Click to expand full list</strong></summary>
+<summary>Click to expand full list</summary>
 
 | | | | |
 |---|---|---|---|
@@ -132,9 +131,7 @@ sync
 
 </details>
 
----
-
-## What we changed from upstream Batocera
+## What We Changed from Upstream Batocera
 
 Only **board-level** additions — zero changes to emulators or Batocera core.
 
@@ -150,7 +147,7 @@ Only **board-level** additions — zero changes to emulators or Batocera core.
 | `.github/workflows/build-smartpi-one.yml` | CI workflow |
 
 <details>
-<summary><strong>Project structure</strong></summary>
+<summary>Project structure</summary>
 
 ```
 board/batocera/allwinner/h3/
@@ -171,9 +168,7 @@ package/batocera/boot/uboot-multiboard/
 
 </details>
 
----
-
-## Build from source
+## Build from Source
 
 Requires a Linux x86_64 machine with **200 GB disk**, **8 GB RAM**, **4+ CPU cores**.
 See [docs/BUILD-VM-SETUP.md](docs/BUILD-VM-SETUP.md) for Windows users (Ubuntu VM or WSL2).
@@ -193,7 +188,7 @@ make h3-build
 | **Total** | **4–8 h** | **~1–2 h** |
 
 <details>
-<summary><strong>Build requirements</strong></summary>
+<summary>Build requirements</summary>
 
 | Resource | Minimum | Recommended |
 |----------|---------|-------------|
@@ -204,8 +199,6 @@ make h3-build
 
 </details>
 
----
-
 ## Roadmap
 
 - [ ] **CPU frequency**: OPP table limited to 1008 MHz — add 1.2 GHz OPP in custom SmartPi One DTB (H3 supports up to 1.296 GHz)
@@ -213,7 +206,7 @@ make h3-build
 - [ ] **cpufreq driver**: Enable `CONFIG_CPU_FREQ` + `CONFIG_ARM_ALLWINNER_SUN50I_CPUFREQ_NVMEM` in kernel config for dynamic frequency scaling
 - [ ] **Upgrade to Batocera v39/v40**
 
-## Related projects
+## Related Projects
 
 | Project | Description |
 |---------|-------------|
@@ -228,13 +221,13 @@ Full Batocera documentation: **[wiki.batocera.org](https://wiki.batocera.org/)**
 
 Covers controls, scraping, netplay, themes, RetroAchievements, and more.
 
+## License
+
+MIT — Same as upstream Batocera.
+
 ---
 
 <p align="center">
   <a href="https://batocera.org/"><strong>Batocera Linux</strong></a> ·
   <a href="https://www.yumi-lab.com"><strong>Yumi Lab</strong></a>
-</p>
-
-<p align="center">
-  <sub>MIT License — Same as upstream Batocera</sub>
 </p>
