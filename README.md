@@ -10,19 +10,20 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest"><img src="https://img.shields.io/github/v/release/Yumi-Lab/Batocera-SmartPiOne?label=Download&style=for-the-badge&color=e74c3c" alt="Download"></a>
-  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest"><img src="https://img.shields.io/github/downloads/Yumi-Lab/Batocera-SmartPiOne/total?style=for-the-badge&color=27ae60" alt="Downloads"></a>
-  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/stargazers"><img src="https://img.shields.io/github/stars/Yumi-Lab/Batocera-SmartPiOne?style=for-the-badge&color=f39c12" alt="Stars"></a>
-  <a href="https://batocera.org/"><img src="https://img.shields.io/badge/Batocera-v38-blueviolet?style=for-the-badge" alt="Batocera v38"></a>
-  <a href="https://wiki.batocera.org/"><img src="https://img.shields.io/badge/Docs-wiki.batocera.org-blue?style=for-the-badge" alt="Documentation"></a>
+  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest"><img src="https://img.shields.io/github/v/release/Yumi-Lab/Batocera-SmartPiOne?label=release&style=flat-square&color=e74c3c" alt="Release"></a>
+  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases/latest"><img src="https://img.shields.io/github/downloads/Yumi-Lab/Batocera-SmartPiOne/total?style=flat-square&color=27ae60&label=downloads" alt="Downloads"></a>
+  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/stargazers"><img src="https://img.shields.io/github/stars/Yumi-Lab/Batocera-SmartPiOne?style=flat-square&color=f39c12" alt="Stars"></a>
+  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne"><img src="https://img.shields.io/github/repo-size/Yumi-Lab/Batocera-SmartPiOne?style=flat-square&label=repo%20size" alt="Repo size"></a>
+  <a href="https://github.com/Yumi-Lab/Batocera-SmartPiOne/blob/master/COPYING"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="License"></a>
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Batocera-v38-blueviolet?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yMSAzSDNhMiAyIDAgMCAwLTIgMnYxNGEyIDIgMCAwIDAgMiAyaDE4YTIgMiAwIDAgMCAyLTJWNWEyIDIgMCAwIDAtMi0yek05IDE3SDdWN2gydjEwem00IDBoLTJWN2gydjEwem00IDBoLTJWN2gydjEweiIvPjwvc3ZnPg==" alt="Batocera v38">
   <img src="https://img.shields.io/badge/SoC-Allwinner_H3-orange?style=flat-square" alt="H3">
-  <img src="https://img.shields.io/badge/Arch-ARMv7_armhf-blue?style=flat-square" alt="ARMv7">
-  <img src="https://img.shields.io/badge/GPU-Mali--400_Lima-green?style=flat-square" alt="Mali-400">
-  <img src="https://img.shields.io/badge/Kernel-6.1.55-lightgrey?style=flat-square" alt="Kernel">
-  <img src="https://img.shields.io/badge/License-MIT-brightgreen?style=flat-square" alt="MIT">
+  <img src="https://img.shields.io/badge/CPU-Cortex--A7_×4_@_1.0GHz-blue?style=flat-square" alt="CPU">
+  <img src="https://img.shields.io/badge/GPU-Mali--400_MP2_(Lima)-green?style=flat-square" alt="GPU">
+  <img src="https://img.shields.io/badge/kernel-6.1.55-lightgrey?style=flat-square" alt="Kernel">
+  <img src="https://img.shields.io/badge/systems-117-ff69b4?style=flat-square" alt="117 systems">
 </p>
 
 ---
@@ -58,10 +59,10 @@ sync
 
 | Spec | Detail |
 |------|--------|
-| **SoC** | Allwinner H3 — Cortex-A7 quad-core @ 1.2 GHz |
+| **SoC** | Allwinner H3 — Cortex-A7 quad-core @ 1.0 GHz |
 | **RAM** | 1 GB DDR3 (576 MHz, custom tuning) |
 | **GPU** | Mali-400 MP2 — Lima / Mesa (GLES 2.0) |
-| **WiFi** | RTL8188EU (on-board) |
+| **WiFi** | Via USB dongle (RTL8188EU tested) |
 | **Bluetooth** | Via USB dongle |
 | **Storage** | MicroSD (image ~1.2 GB, expands to full card) |
 | **Video** | HDMI up to 1080p (adaptive) + Composite |
