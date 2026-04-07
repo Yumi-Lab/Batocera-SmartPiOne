@@ -1,40 +1,152 @@
-[![Activity](https://img.shields.io/github/commit-activity/m/batocera-linux/batocera.linux)](https://github.com/batocera-linux/batocera.linux)
-[![PR](https://img.shields.io/github/issues-pr-closed/batocera-linux/batocera.linux)](https://github.com/batocera-linux/batocera.linux)
-[![Stars](https://img.shields.io/github/stars/batocera-linux?style=social)](https://github.com/batocera-linux/batocera.linux)
-[![Forks](https://img.shields.io/github/forks/batocera-linux/batocera.linux?style=social)](https://github.com/batocera-linux/batocera.linux)
-[![Website](https://img.shields.io/website?down_color=red&down_message=down&up_color=green&up_message=up&url=https%3A%2F%2Fwww.batocera.org)](https://www.batocera.org)
-[![Discord Server](https://img.shields.io/discord/357518249883205632.svg)](https://discord.com/invite/JXhfRTr)\
-[![Reddit](https://img.shields.io/reddit/subreddit-subscribers/batocera?style=social)](https://www.reddit.com/r/batocera/)
-[![Twitter](https://img.shields.io/twitter/follow/batocera_linux?style=social)](https://twitter.com/batocera_linux/)
-[![Youtube](https://img.shields.io/youtube/channel/views/UClFpqHKoXsOIV-GjyZqoZcw?style=social)](https://www.youtube.com/channel/UClFpqHKoXsOIV-GjyZqoZcw/featured)
+# Batocera-SmartPiOne
 
-## :video_game::penguin: Batocera Linux :video_game::penguin:
-Batocera Linux is an open-source and completely free retro-gaming distribution that can be copied to a USB stick or an SD card with the aim of turning any computer/nano computer into a gaming console during a game or permanently. Batocera Linux does not require any modification on your computer. It supports [many emulators and game engines](https://www.batocera.org/compatibility.php) out of the box. 
+[Batocera Linux](https://batocera.org/) port for the [SmartPi One](https://www.yumi-lab.com) (Allwinner H3) by Yumi Lab.
 
-## Get information on the project
+Turn your SmartPi One into a plug-and-play retrogaming console with 50+ emulators, scraper, RetroAchievements, and a polished UI — powered by the Batocera community.
 
- - :globe_with_meridians: Browse our [website](https://batocera.org/) for general information and get access to all the latest downloads
- - :memo: Documentation is available on our [wiki](https://wiki.batocera.org/doku.php) and frequently updated
- - :speech_balloon: Discuss any topic with the community on our [Discord Server](https://discord.gg/ndyUKA5)
+> This is a fork of [batocera-linux/batocera.linux](https://github.com/batocera-linux/batocera.linux) with SmartPi One board support added.
 
-## Do you need help with Batocera?
+## SmartPi One hardware
 
- - :sos: The most effective way is to join our [Discord Server](https://discord.gg/ndyUKA5) and go to the \#help-and-support channel
- - :neckbeard: There is a [Batocera subreddit](https://www.reddit.com/r/batocera/) that is fairly active
+| Spec | Detail |
+|------|--------|
+| **SoC** | Allwinner H3 — Cortex-A7 quad-core @ 1.2 GHz |
+| **RAM** | 1 GB DDR3 (576 MHz, custom tuning) |
+| **GPU** | Mali-400 MP2 — Lima (GLES 2.0) |
+| **WiFi** | RTL8188EU (on-board) |
+| **Storage** | MicroSD |
+| **Video** | HDMI 1080p + Composite |
 
-## How can you help Batocera?
+## What you get
 
- - :wrench: If you want to help with development, [we accept PRs](https://makeapullrequest.com/) -- anyone is welcome, we embrace the [Bazaar development principles](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar)
- - :art: No need to be a developer, you can also [help with translations](https://wiki.batocera.org/help_with_translation), talk about our project on [Youtube](https://www.youtube.com/channel/UClFpqHKoXsOIV-GjyZqoZcw/featured) or [Twitter](https://twitter.com/batocera_linux/), create [themes for EmulationStation](https://wiki.batocera.org/themes)
- - :dollar: If you like Batocera, you can help us with a [Paypal donation](https://www.paypal.com/paypalme/nadenislamarre), it's always appreciated!
- - :bowtie: Finally, you can now proudly rock some offcial [Batocera T-shirts, hoodies and other merch](https://batocera.printify.me/).
+| Feature | Detail |
+|---------|--------|
+| **Emulators** | 50+ systems — NES, SNES, Mega Drive, PS1, GBA, N64, arcade, and more |
+| **Frontend** | Batocera EmulationStation (themes, scraping, per-game settings) |
+| **GPU driver** | Lima (open-source Mesa, GLES 2.0) |
+| **RetroAchievements** | Built-in support |
+| **Controllers** | Auto-detection USB/BT gamepads |
+| **Network** | WiFi config from ES menu |
+| **Updates** | Atomic update (replace single squashfs file) |
+| **Boot time** | ~15 seconds to EmulationStation |
 
-## Directory navigation
+### Emulation performance (H3 reality check)
 
- - `board` Platform-specific build configuration. This is where to include special patches/configuration files needed to have particular components work on a particular platform. It is instead encouraged to apply patches at the location of the package itself, but this may not always be possible.
- - `buildroot` Buildroot, the tool used to create the final compiled images. For newcomers, you can safely ignore this folder. Compilation instructions can be found [on the wiki](https://wiki.batocera.org/compile_batocera.linux).
- - `configs` Build flags, which define what components will be built with your image depending on your chose architecture. If you're trying to port Batocera to a new architecture (device, platform, new bit mode, etc.) this is the file you'll need to edit. More information on [the build configuration section on the buildroot compiling page](https://wiki.batocera.org/batocera.linux_buildroot_modifications#define_your_configuration).
- - `package` The "meat and potatoes" of Batocera. This is where the majority of emulator data, config generators, core packages, system utilities, etc. all go into. This is the friendliest place to start dev-work for new devs, as most of it is handled by Python and Makefile.
- - `scripts` Various miscellanous scripts that handle aspects external to Batocera, such as the report data sent to the [compatibility page](https://batocera.org/compatibility.php) or info about the Bezel Project.
+| System | Performance |
+|--------|------------|
+| NES / SNES / Game Boy / GBA | Excellent |
+| Mega Drive / Master System | Excellent |
+| PS1 (easy titles) | Good |
+| N64 | Poor (hardware limit) |
+| PSP | Not recommended |
+| Arcade (CPS1/CPS2/Neo-Geo) | Good to Excellent |
+| DOS / ScummVM | Good |
 
-A cheatsheet of notable files/folders can be found [on the wiki](https://wiki.batocera.org/notable_files).
+The H3 is comparable to a Raspberry Pi 2 in emulation capability. For heavier systems, wait for SmartPi 4 (H618/Mali-G31/Vulkan).
+
+## What we changed from upstream Batocera
+
+Only **board-level** additions — zero changes to emulators or Batocera core:
+
+| File | Change |
+|------|--------|
+| `board/batocera/allwinner/h3/smartpi-one/` | New board: boot script, genimage, extlinux |
+| `package/batocera/boot/uboot-multiboard/nanopi_m1/` | U-Boot DRAM tuning (576MHz, ZQ=3881979, ODT) |
+| `package/batocera/boot/uboot-multiboard/Config.in` | Added `nanopi_m1` to H3 U-Boot list |
+| `package/batocera/core/batocera-system/Config.in` | Registered `smartpi-one` board |
+| `configs/batocera-h3.board` | Added `sun8i-h3-nanopi-m1` DTB |
+| `.github/workflows/build-smartpi-one.yml` | CI workflow |
+
+## Quick start
+
+### Download
+
+Pre-built images available in [Releases](https://github.com/Yumi-Lab/Batocera-SmartPiOne/releases) (when available) or as [GitHub Actions artifacts](https://github.com/Yumi-Lab/Batocera-SmartPiOne/actions).
+
+### Flash
+
+```bash
+# Decompress
+gunzip batocera-smartpi-one.img.gz
+
+# Flash (replace /dev/sdX with your SD card)
+sudo dd if=batocera-smartpi-one.img of=/dev/sdX bs=1M status=progress
+sync
+```
+
+> **Warning**: Do NOT use Balena Etcher with Allwinner H3 images — use `dd` only.
+
+### First boot
+
+1. Insert SD card, connect HDMI and gamepad, power on
+2. Batocera boots directly to EmulationStation
+3. Configure WiFi from the ES menu
+4. Add ROMs via network share (SMB) or USB
+
+## Build from source
+
+Requires a Linux x86_64 machine with **200 GB disk**, **8 GB RAM**, **4+ CPU cores**.
+See [docs/BUILD-VM-SETUP.md](docs/BUILD-VM-SETUP.md) for Windows users (Ubuntu VM or WSL2).
+
+```bash
+git clone https://github.com/Yumi-Lab/Batocera-SmartPiOne.git
+cd Batocera-SmartPiOne
+make h3-build
+```
+
+| Phase | First build | Rebuild (cache) |
+|-------|------------|-----------------|
+| **Toolchain** | ~30 min | cached |
+| **Kernel + U-Boot** | ~20 min | ~5 min |
+| **Packages (all emulators)** | 3-6h | ~1h |
+| **Image generation** | ~10 min | ~10 min |
+| **Total** | **4-8h** | **~1-2h** |
+
+Output: `output/h3/images/batocera/smartpi-one/batocera*.img`
+
+## Build requirements
+
+| Resource | Minimum | Recommended |
+|----------|---------|-------------|
+| **OS** | Linux x86_64 (Ubuntu 22.04+) | Ubuntu 24.04 |
+| **Disk** | 100 GB | 200 GB |
+| **RAM** | 8 GB | 16 GB |
+| **CPU** | 4 cores | 8+ cores |
+| **Time** | 8 hours | 4 hours |
+
+## Project structure (SmartPi additions)
+
+```
+board/batocera/allwinner/h3/
+├── smartpi-one/                    # SmartPi One board (NEW)
+│   ├── boot/extlinux.conf          # Kernel boot config (nanopi-m1 DTB)
+│   ├── create-boot-script.sh       # Image packaging script
+│   └── genimage.cfg                # SD card layout (U-Boot nanopi_m1)
+├── orangepi-pc/                    # (upstream) Reference H3 board
+├── orangepi-one/                   # (upstream)
+└── ...
+
+package/batocera/boot/uboot-multiboard/
+├── nanopi_m1/                      # SmartPi One DRAM config (NEW)
+│   └── uboot.config.fragment       # CONFIG_DRAM_CLK=576, ZQ, ODT
+├── common-h3/                      # (upstream) Shared H3 U-Boot config
+└── Config.in                       # Board list (nanopi_m1 added)
+```
+
+## Related projects
+
+| Project | Description |
+|---------|-------------|
+| [RetroMi](https://github.com/Yumi-Lab/RetroMi) | Custom retrogaming image (RetroPie + EmulationStation on Armbian) |
+| [SmartPi-BSP-kernel-linux](https://github.com/Yumi-Lab/SmartPi-BSP-kernel-linux) | Minimal BSP — bare Linux in 15 MB, boots in 5 seconds |
+| [SmartPi-armbian](https://github.com/Yumi-Lab/SmartPi-armbian) | Armbian server base image |
+| [Batocera upstream](https://github.com/batocera-linux/batocera.linux) | Original Batocera project |
+
+## Credits
+
+- [Batocera Linux](https://batocera.org/) — the amazing retrogaming distribution
+- [Yumi Lab](https://www.yumi-lab.com) — SmartPi One hardware and board support
+
+## License
+
+MIT — Same as upstream Batocera.
